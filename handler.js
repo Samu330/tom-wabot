@@ -1,41 +1,41 @@
 // Config
 var config = {
-    botName: '🔹 𝙉 O T 🔹',
-    operator: ['6281515860089'],
+    botName: '✯𝙏𝙤𝙢✯',
+    operator: ['529984907794'],
     prefix: process.env.prefix ? new RegExp('^' + process.env.prefix) : /^[°•π÷×¶∆£¢€¥®™✓_=|~!?@#$%^&.\/\\©^]/,
     downloadStatus: false, // Curi Status Orang :|
     devMode: false, // true,
     msg: {
-        notAdmin: '🔰 Maaf anda bukan admin grup',
-        notGroup: '👨‍👩‍👧‍👦 Fitur ini hanya bisa digunakan di grup',
+        notAdmin: '⚠ Lo siento, no eres un administrador de grupo',
+        notGroup: '👨‍👩‍👧‍👦 Esta función solo se puede utilizar en grupos',
         notBotAdmin: '🔰 Bot belum menjadi admin grup',
-        notURL: '🌐 Tidak ada URL',
-        noMedia: '📷 Tidak ada Media',
-        noArgs: '❓ Tidak ada argumen',
-        noJid: '❓ Tidak ada @user yang disebut',
-        notAllowed: `❌ Fitur ini tidak bisa kamu gunakan`,
-        add: '➕ Menambahkan:\n',
-        remove: '➖ Mengeluarkan:\n',
-        promote: '🔰 Menambahkan:\n',
-        demote: '🙍‍♂️ Menurunkan:\n',
-        self: 'Kok aku?',
-        dev: '👨‍💻 Fitur masih dalam tahap pengembangan 🔧',
-        devOff: '🔧 Fitur dinonaktifkan oleh developer',
-        groupOff: '❌ Fitur dinonaktifkan untuk grup ini',
-        success: '✅ Sukses',
-        success: '❌ Gagal',
+        notURL: '🌐 Sin URL',
+        noMedia: '📷 Sin multimedia',
+        noArgs: '❓ Sin argumentos',
+        noJid: '❓ No se mencionó a nadie @user',
+        notAllowed: `❌ No puedes usar esta función`,
+        add: '➕ Añadir:\n',
+        remove: '➖ Eliminar:\n',
+        promote: '🔰 Subir de rango:v\n',
+        demote: '🙍‍♂️ Quitar ADM:\n',
+        self: 'yo?',
+        dev: '👨‍💻 Las funciones aún están en desarrollo 🔧',
+        devOff: '🔧 Función inhabilitada por el desarrollador',
+        groupOff: '❌ Las funciones están deshabilitadas para este grupo',
+        success: '✅ Success',
+        success: '❌ Error',
         list: value => `- ${value}`,
         listUser: user => `- @${user.replace(/^@?|@c.us$/, '')}`,
-        promoteEach: user => `- @${user} menjadi Admin 🔰`,
-        demoteEach: user => `- @${user} menjadi Member 🙍‍♂️`,
-        promoteFail: user => `- @${user} sudah menjadi Admin 🔰`,
-        demoteFail: user => `- @${user} sudah menjadi Member 🙍‍♂️`,
+        promoteEach: user => `- @${user} conviértete en administrador 🔰`,
+        demoteEach: user => `- @${user} convertirse en miembro 🙍‍♂️`,
+        promoteFail: user => `- @${user} ya es administrador 🔰`,
+        demoteFail: user => `- @${user} Ya eres miembro 🙍‍♂️`,
         promoteFormat: (success, failed) => config.msg.promote + success.map(config.msg.promoteEach).join('\n') + '\n' + failed.length > 0 ? failed.map(config.msg.promoteFail).join('\n') : '',
         demoteFormat: (success, failed) => config.msg.demote + success.map(config.msg.demoteEach).join('\n') + '\n' + failed.length > 0 ? failed.map(config.msg.demoteFail).join('\n') : '',
         yt: (title, filesize) => `*${title}*\n\n💾 Filesize: ${filesize}`,
-        recommend: (prefix, command) => `Direkomendasikan pakai *${prefix + command}*`,
-        sizeExceed: size => `❌ Ukuran file melebihi batas yang ditentukan\n💾 Filesize: *${size}*\n📈 Limit: *${config.sizeLimit} MB*`,
-        waitConvert: (a, b, desc) => `⏱ Tunggu beberapa detik!\nSedang melakukan proses konversi *${a}* → *${b}*${desc ? `\n\n${desc.split('\n').map(v => `_${v}_`).join('\n')}` : ''}`,
+        recommend: (prefix, command) => `Uso recomendado *${prefix + command}*`,
+        sizeExceed: size => `❌ El tamaño del archivo supera el límite especificado\n💾 Filesize: *${size}*\n📈 Limit: *${config.sizeLimit} MB*`,
+        waitConvert: (a, b, desc) => `⏱ Espere unos segundos!\nEn proceso de conversión *${a}* → *${b}*${desc ? `\n\n${desc.split('\n').map(v => `_${v}_`).join('\n')}` : ''}`,
         broadcast: (sender, msg) => `📢 *BROADCAST* 📢\n_From: @${sender.id}_\n\n${msg}`,
         error: e => `⚠ *ERROR* ⚠\n\n${e}`,
         ytsearch: item => {
@@ -43,28 +43,28 @@ var config = {
                 case 'video':
                     return `
 *${item.type}*
-├> Judul: ${item.title}
-├> Durasi: ${item.duration[0]} (${item.duration[1]})
-├> Channel: ${item.author.name} ${item.author.verified ? item.author.verified == 'artist' ? '🎶' : '✅' : ''}
-├> Link: ${item.link}
-├> Deskripsi: ${item.description}
+❙➥ Título: ${item.title}
+❙➥ Duracion: ${item.duration[0]} (${item.duration[1]})
+❙➥ Channel: ${item.author.name} ${item.author.verified ? item.author.verified == 'artist' ? '🎶' : '✅' : ''}
+❙➥ Link: ${item.link}
+❙➥ Descripcion: ${item.description}
 `.slice(1, -1)
                 case 'channel':
                     return `
 *${item.type}*
-├> Nama: ${item.title} ${item.verified ? item.verified == 'artist' ? '🎶' : '✅' : ''}
-├> Jumlah Video: ${item.videoCount}
-├> Subscriber: ${item.subscriberCount}
-├> Link: ${item.link}
-├> Deskripsi: ${item.description}
+❙➥ Nombre: ${item.title} ${item.verified ? item.verified == 'artist' ? '🎶' : '✅' : ''}
+❙➥ Cantidad de videos: ${item.videoCount}
+❙➥ Suscriptores: ${item.subscriberCount}
+❙➥ Link: ${item.link}
+❙➥ Descripcion: ${item.description}
 `.slice(1, -1)
             }
         }
     },
     iklan: [
-        'Anda butuh API? Sini aja:v https://st4rz.herokuapp.com (Iklan by https://wa.me/6285221100126)',
+        '¿Necesitas una API? Aquí por favor:v https://st4rz.herokuapp.com (Iklan by https://wa.me/6285221100126)',
         // 'Grup: https://chat.whatsapp.com/EN08hYxatxgJXdxo9dsART',
-        'Github: https://github.com/Nurutomo/nbot-wa',
+        'Github: https://github.com/Samu330',
         'API: https://repl.it/@Nurutomo/MhankBarBar-Api',
     ],
     stickerGIF: {
@@ -492,7 +492,7 @@ cmd.on('resend', /^(re(send|post)|to(img|image))$/i, async function (client = ne
         const mediaData = await decryptMedia(encryptMedia)
 
         if (encryptMedia.animated) {
-            client.reply(from, config.msg.waitConvert('webp', 'mp4', 'Kebalikan dari gifstiker'), id)
+            client.reply(from, config.msg.waitConvert('webp', 'mp4', 'Lo contrario de gifstiker'), id)
             const sticker = await stream2Buffer(write => {
                 ffmpeg(buffer2Stream(mediaData))
                     .format('mp4')
@@ -533,7 +533,7 @@ cmd.on('ping', /^((bot|)stat(s|)|botinfo|infobot|ping|speed)$/i, async function 
     const loadedMsg = await client.getAmountOfLoadedMessages()
     const chatIds = await client.getAllChatIds()
     const groups = await client.getAllGroups()
-    const groupsIn = groups.filter(x => x.groupMetadata.participants.map(x => [botNumber, '6281515860089@c.us'].includes(x.id._serialized)).includes(true))
+    const groupsIn = groups.filter(x => x.groupMetadata.participants.map(x => [botNumber, '529984907794@c.us'].includes(x.id._serialized)).includes(true))
     const me = await client.getMe()
     const battery = await client.getBatteryLevel()
     const isCharging = await client.getIsPlugged()
@@ -622,7 +622,7 @@ cmd.on('source', 'source', async function (client = new Client(), { from, id }) 
 
 cmd.on('mp3', ['mp3', 'audio'], async function (client = new Client(), { from, id, isQuotedVideo, quotedMsg, message }) {
     if (isQuotedVideo) {
-        client.reply(from, config.msg.waitConvert('mp4', 'mp3', 'Meng-ekstrak audio dari video'), id)
+        client.reply(from, config.msg.waitConvert('mp4', 'mp3', 'Extraer audio de video'), id)
         const encryptMedia = isQuotedVideo ? quotedMsg : message
         const _mimetype = isQuotedVideo ? quotedMsg.mimetype : mimetype
         console.log(color('[WAPI]', 'green'), 'Downloading and decrypt media...')
@@ -639,7 +639,7 @@ cmd.on('mp3', ['mp3', 'audio'], async function (client = new Client(), { from, i
     } else if (this.text) {
         let search = await ytsr(this.text)
         let ss = await ssPage(search.link, 1000)
-        client.sendFile(from, ss, 'yt.png', `Menampilkan hasil untuk ${search.correctQuery ? `*${search.correctQuery}* atau telusuri _${search.query}_` : `*${search.query}*`}\n\n${search.items.map(config.msg.ytsearch).join('\n\n')}`, id)
+        client.sendFile(from, ss, 'yt.png', `Se muestran los resultados para ${search.correctQuery ? `*${search.correctQuery}* o navegar _${search.query}_` : `*${search.query}*`}\n\n${search.items.map(config.msg.ytsearch).join('\n\n')}`, id)
     }
 })
 
@@ -667,7 +667,7 @@ cmd.on('distord', ['distord', 'distorsi', 'earrape'], async function (client = n
     if (isQuotedAudio || isQuotedVideo) {
         const encryptMedia = isQuotedAudio || isQuotedVideo ? quotedMsg : message
         const _mimetype = encryptMedia.mimetype
-        client.reply(from, config.msg.waitConvert(_mimetype.replace(/.+\//, ''), 'mp3', '⚠ WARNING ⚠\n🔇 Tau lah :v'), id)
+        client.reply(from, config.msg.waitConvert(_mimetype.replace(/.+\//, ''), 'mp3', '⚠ WARNING ⚠\n🔇 Va a explotar :v'), id)
         console.log(color('[WAPI]', 'green'), 'Downloading and decrypt media...')
         const mediaData = await decryptMedia(encryptMedia)
         const distord = await stream2Buffer(write => {
@@ -683,7 +683,7 @@ cmd.on('distord', ['distord', 'distorsi', 'earrape'], async function (client = n
     } else if (isQuotedVideo) {
         // // Bantuin ffmpeg nya :')
         // // biar bisa video filter sama audio filter
-        client.reply(from, config.msg.waitConvert('mp4', 'mp4', '⚠ WARNING ⚠\n🔇 Tau lah :v'), id)
+        client.reply(from, config.msg.waitConvert('mp4', 'mp4', '⚠ WARNING ⚠\n🔇 Va a explotar :v'), id)
         const encryptMedia = isQuotedVideo ? quotedMsg : message
         console.log(color('[WAPI]', 'green'), 'Downloading and decrypt media...')
         const mediaData = await decryptMedia(encryptMedia)
@@ -860,7 +860,7 @@ cmd.on('broadcast', ['broadcast', 'bc'], async function (client = new Client(), 
     ])
     if (failed[0]) return client.reply(from, failed[1], id)
     if (Object.keys(group.data).filter(chatId => group.data[chatId].broadcast).length > 0) client.reply(from, `Mengirim broadcast ke ${Object.keys(group.data).filter(chatId => group.data[chatId].broadcast).length} grup...`, id)
-    else client.reply(from, 'Tidak ada penerima', id)
+    else client.reply(from, 'No hay destinatarios', id)
     broadcast(client, sender, this.text)
 })
 
@@ -905,13 +905,13 @@ cmd.on('test', 'test', function (client = new Client(), { from, id }) {
 cmd.on('ytsr', /^((yt|youtube)(search|sr)|lagu|musik|nyanyi|sing|song|play)$/, async function (client = new Client(), { from, id }) {
     const search = await ytsr(this.text)
     const ss = await ssPage(search.link, 1000)
-    client.sendFile(from, ss, 'yt.png', `Menampilkan hasil untuk ${search.correctQuery ? `*${search.correctQuery}* atau telusuri _${search.query}_` : `*${search.query}*`}\n\n${search.items.map(config.msg.ytsearch).join('\n\n')}`, id)
+    client.sendFile(from, ss, 'yt.png', `Se muestran los resultados para ${search.correctQuery ? `*${search.correctQuery}* o navegar _${search.query}_` : `*${search.query}*`}\n\n${search.items.map(config.msg.ytsearch).join('\n\n')}`, id)
 })
 
 cmd.on('deepfry', ['deepfry', 'goreng'], async function (client = new Client(), { from, id, isImage, isQuotedImage, isQuotedSticker, quotedMsg, message }) {
     if (isImage || isQuotedImage || isQuotedSticker) {
-        if (isQuotedSticker) client.reply(from, config.msg.waitConvert('webp (jpg 3x)', 'webp (jpg 3x)', 'Sedang menggoreng stiker:v (4 kali)'), id)
-        else client.reply(from, config.msg.waitConvert('jpg', 'jpg', 'Sedang menggoreng:v (4 kali)'), id)
+        if (isQuotedSticker) client.reply(from, config.msg.waitConvert('webp (jpg 3x)', 'webp (jpg 3x)', 'Esta friendo stiker:v (4 veces)'), id)
+        else client.reply(from, config.msg.waitConvert('jpg', 'jpg', 'Esta friendo:v (4 veces)'), id)
         const encryptMedia = !isImage && (isQuotedImage || isQuotedSticker) ? quotedMsg : message
         console.log(color('[WAPI]', 'green'), 'Downloading and decrypt media...')
         const mediaData = await decryptMedia(encryptMedia)
@@ -962,7 +962,7 @@ cmd.on('deepfry', ['deepfry', 'goreng'], async function (client = new Client(), 
             fry = await processSticker(fry, 'contain')
             client.sendRawWebpAsSticker(from, fry.toString('base64'))
         }
-        else client.sendFile(from, baseURI(fry, 'image/jpg'), 'deepfry.jpg', 'Nih gorengannya (deepfry)', id)
+        else client.sendFile(from, baseURI(fry, 'image/jpg'), 'deepfry.jpg', 'Aquí está frito (deepfry)', id)
     } else client.reply(from, config.msg.noMedia, id)
 })
 
@@ -972,7 +972,7 @@ cmd.on('random', ['random', 'rng', 'dice', 'acak'], async function (client = new
     if (min > max) [min, max] = [max, min]
 
     let rng = Math.floor(Math.random() * (max - min + 1))
-    client.reply(from, `🎲 ${rng}\nRange: ${min} - ${max}`, id)
+    client.reply(from, `🎲 ${rng}\nRango: ${min} - ${max}`, id)
 })
 
 cmd.on('freeup', ['freeup', 'cutcache', 'cutmsgcache'], async function (client = new Client(), { from, id, isOperator }) {
@@ -1152,68 +1152,68 @@ function permission(rules) {
 
 function showHelp(prefix, name = '', command) {
     let reference = command ? ({
-        help: `Contoh: *${prefix}help stiker*`,
-        stiker: `Kirim foto dengan caption: *${prefix}stiker*`,
-        gifstiker: `Kirim video/gif dengan caption: *${prefix}gifstiker*`,
-        meme: `Kirim foto dengan caption: *${prefix}meme teks atas|teks bawah*`,
-        memestiker: `Kirim foto dengan caption: *${prefix}memestiker teks atas|teks bawah*`,
-        resend: `Tag pesan sesorang yang ada medianya untuk mengirimkannya kembali: *${prefix}resend*`,
-        mp3: `Tag video untuk mengekstrak audio nya: *${prefix}mp3*`,
-        bass: `Tag audio dengan desibel 10dB dan frekuensi 100hz: *${prefix}bass 10 100*`,
-        botstat: `Cek keadaan bot: *${prefix}botstat*`,
-        distord: `Tag audio untuk mendistorsi audionya: *${prefix}distord*`,
+        help: `Ejemplo: *${prefix}help stiker*`,
+        stiker: `Envía fotos con subtítulos: *${prefix}stiker*`,
+        gifstiker: `Enviar video/gif con subtítulo: *${prefix}gifstiker*`,
+        meme: `Envía fotos con subtítulos: *${prefix}texto meme arriba | texto abajo*`,
+        memestiker: `Envía fotos con subtítulos: *${prefix}memestiker texto superior | texto inferior*`,
+        resend: `Etiqueta el mensaje de alguien con los medios para enviarlo de vuelta: *${prefix}resend*`,
+        mp3: `Etiqueta el video para extraer el audio: *${prefix}mp3*`,
+        bass: `Etiqueta el audio para agregar efecto BASS BOST de 10 dB y frecuencia de 100 Hz: *${prefix}bass 10 100*`,
+        botstat: `Verificar el estado del bot: *${prefix}botstat*`,
+        distord: `Etiqueta el audio para distorsionarlo: *${prefix}distord*`,
         ssweb: `Screenshot Website google.com: *${prefix}ssweb google.com*`,
         sswebf: `Screenshot Website google.com (Full Page): *${prefix}sswebf google.com*`,
-        google: `Screenshot hasil pencarian 'google': *${prefix}google google*`,
-        googlef: `Screenshot hasil pencarian gambar 'google': *${prefix}sswebf google*`,
-        ytmp4: `Download YouTube Mp4: *${prefix}ytmp4 https://youtu.be/VQMCJgWxUoE*`,
-        ytmp3: `Download YouTube Mp3: *${prefix}ytmp3 https://youtu.be/VQMCJgWxUoE*`,
-        ig: `Download postingan Instagram: *${prefix}ig https://www.instagram.com/p/CFs8MvLg0s_/?igshid=1982zv2awlaqj*`,
-        nulis: `Nulis teks: *${prefix}nulis tulisan*`,
-    })[command] || 'Tidak ditemukan [404 Not Found]' : ''
+        google: `Screenshot resultado de búsqueda 'google': *${prefix}google google*`,
+        googlef: `Screenshot resultados de búsqueda de imágenes 'google': *${prefix}sswebf google*`,
+        ytmp4: `Download YouTube Mp4: *${prefix}ytmp4 https://www.youtube.com/watch?v=chMc57gjmkI&t=319s*`,
+        ytmp3: `Download YouTube Mp3: *${prefix}ytmp3 https://www.youtube.com/watch?v=chMc57gjmkI&t=319s*`,
+        ig: `Descargar publicaciones de Instagram: *${prefix}ig https://www.instagram.com/p/CFs8MvLg0s_/?igshid=1982zv2awlaqj*`,
+        nulis: `Escribir texto: *${prefix}nulis Samu330*`,
+    })[command] || 'Extraviado [404 Not Found]' : ''
     return `
 • *${config.botName}* •
 👋 Hai, ${name}!
 
-• *Info Tanda di Argumen* •
-Tanda *<>* = itu harus diisi
-Tanda *[]*  = tidak harus diisi
-Tanda *...* = dan seterusnya
-Tanda *|* = atau
-Tanda *@user* = di mention atau disebut
+• *Info Marcas en argumentos* •
+Signo *<>* = debe ser llenado
+Signo *[]*  = no requerido
+Signo *...* = dan seterusnya
+Signo *|* = o
+Signo *@user* = mencionado o llamado
 
-• Info Fitur •
-*${prefix}help* [command]${command ? `\n║\n║ *Info Fitur*:\n║ ${reference}` : ''}
+• Información de la función •
+*${prefix}help* [command]${command ? `\n║\n║ *Información de la función*:\n║ ${reference}` : ''}
 ${readMore}
 • *Menu Admin* •
-➕ *${prefix}add* <62XXXXXXXXXX1> [<62XXXXXXXXXXX> ...]
-➖ *${prefix}kick* <62XXXXXXXXXX1> [<62XXXXXXXXXXX> ...]
+➕ *${prefix}add* <52XXXXXXXXXX1> [<52XXXXXXXXXXX> ...]
+➖ *${prefix}kick* <52XXXXXXXXXX1> [<52XXXXXXXXXXX> ...]
 🔼 *${prefix}promote* <@user>
 🔽 *${prefix}demote* <@user>
 
 • *Menu Utama* •
 🖼 *${prefix}stiker*
 📽 *${prefix}gifstiker*
-#️⃣ *${prefix}meme* <[atas|]bawah>
-#️⃣ *${prefix}memestiker* <[atas|]bawah>
+#️⃣ *${prefix}meme* <[arriba|]abajo>
+#️⃣ *${prefix}memestiker* <[arriba|]abajo>
 ➡ *${prefix}resend*
-🎵 *${prefix}mp3* [pencarian]
-🔊 *${prefix}bass* [<desibel> <freqkuensi>]
+🎵 *${prefix}mp3* [buscar]
+🔊 *${prefix}bass* [<desnivel> <frecuensia>]
 ℹ *${prefix}botstat*
 😂 *${prefix}distord*
 😂 *${prefix}deepfry*
 🌐 *${prefix}ssweb* <url>
 🌐 *${prefix}sswebf* <url>
-🔎 *${prefix}google* <pencarian>
-🔎 *${prefix}googlef* <pencarian>
+🔎 *${prefix}google* <buscar>
+🔎 *${prefix}googlef* <buscar>
 📄 *${prefix}nulis* <teks>
 📄 *${prefix}ttstiker* <teks>
-🔎 *${prefix}ytsr* <pencarian>
-🔺 *${prefix}follow* <namaIG>
+🔎 *${prefix}ytsr* <buscar>
+🔺 *${prefix}follow* <nombreIG>
 
-• *Kerang Ajaib:v* •
-*${prefix}apakah* <pertanyaan>
-*${prefix}kapan* <pertanyaan>
+• *Conchas Mágicas:v* •
+*${prefix}apakah* <pregunta>
+*${prefix}kapan* <pregunta>
 *${prefix}rate*
 
 • *Downloader* •
@@ -1227,9 +1227,9 @@ ${readMore}
 ❌ *${prefix}fb* <url>
 ❌ *${prefix}tiktok* <url>
 
-• *Butuh API* •
+• *Necesita API* •
 - ${config.API.mhankbarbar.url}
-Cuma IG :|
+Solo IG :|
 
 • *Advanced* •
 📢 *${prefix}allowBroadcast* <enable|disable>
@@ -1242,14 +1242,14 @@ Cuma IG :|
 • *Operator Only* •
 📢 *${prefix}broadcast* <text>
 
-• *Iklan* •
-${(config.iklan || []).map((iklan, i) => `${i + 1}. ${iklan}`).join('\n') || '_Tidak ada iklan_'}
+• *Anuncio publicitario* •
+${(config.iklan || []).map((iklan, i) => `${i + 1}. ${iklan}`).join('\n') || '_Sin publicidad_'}
 
 • *Bot Author* •
-𝙉𝙪𝙧𝙪𝙩𝙤𝙢𝙤 (Nurutomo)
-https://github.com/Nurutomo/
-Repo: https://github.com/Nurutomo/nbot-wa
-${readMore}wa.me/6281515860089
+𝑺𝒂𝒎𝒖𝟑𝟑𝟎 (Samu330)
+https://github.com/Semu330/
+Repo: https://github.com/Samu330/tom-wabot
+${readMore}wa.me/+529984907794
 `.slice(1, -1)
 }
 
